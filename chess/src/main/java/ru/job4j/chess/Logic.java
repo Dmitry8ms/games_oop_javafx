@@ -21,6 +21,12 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (Cell c : steps) {
+            try {
+                findBy(c);
+                throw new OccupiedCellException();
+            } catch (FigureNotFoundException e) { }
+        }
         return true;
     }
 
