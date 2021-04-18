@@ -21,11 +21,18 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
-        for (Cell c : steps) {
+      /*  for (Cell c : steps) {
             try {
                 findBy(c);
                 throw new OccupiedCellException();
             } catch (FigureNotFoundException e) { }
+        }*/
+        for (Figure f : figures) {
+            for (Cell c : steps) {
+                if (f.position() == c) {
+                    throw new OccupiedCellException();
+                }
+            }
         }
         return true;
     }
