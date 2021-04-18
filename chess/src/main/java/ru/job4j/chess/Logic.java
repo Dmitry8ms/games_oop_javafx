@@ -29,7 +29,7 @@ public final class Logic {
         }*/
         for (Figure f : figures) {
             for (Cell c : steps) {
-                if (f.position() == c) {
+                if (f.position().equals(c)) {
                     throw new OccupiedCellException();
                 }
             }
